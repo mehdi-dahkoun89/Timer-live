@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Live Timer</title>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+margin-top:100px;
+font-size:40px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="timer">00:00:00</div>
+
+<script>
+
+var startTime = new Date().getTime();
+
+function updateTimer(){
+
+var now = new Date().getTime();
+var diff = now - startTime;
+
+var seconds = Math.floor(diff/1000);
+var hours = Math.floor(seconds/3600);
+seconds = seconds % 3600;
+
+var minutes = Math.floor(seconds/60);
+seconds = seconds % 60;
+
+document.getElementById("timer").innerHTML =
+String(hours).padStart(2,'0') + ":" +
+String(minutes).padStart(2,'0') + ":" +
+String(seconds).padStart(2,'0');
+
+}
+
+setInterval(updateTimer,1000);
+
+</script>
+
+</body>
+</html>
